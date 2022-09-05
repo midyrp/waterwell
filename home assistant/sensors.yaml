@@ -1,0 +1,11 @@
+#-----------------------------------------------------------
+# Additions in /usr/share/hassio/homeassistant/sensors.yaml
+#-----------------------------------------------------------
+
+- platform: rest
+  scan_interval: 300
+  resource: !secret waterwell_url
+  name: WaterWell_level
+  unit_of_measurement: cm
+  value_template: "{{ value_json[0]['data']['Water'] | int * -1 }}"
+

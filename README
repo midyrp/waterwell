@@ -1,3 +1,24 @@
 The Waterwell
 
 It's about measuring the waterlevel in my waterwell
+
+An esp6266 controls a ultrasone sensor and sends the measurement to a webserver (2x per hour)
+Home assistant reads that data and produces graphs and/or alarmsHome assistant config.txt
+
+Files:
+---------
+
+esp8266/waterwell.ino
+  ESP8266 script. To be downloaded on the esp8266 board
+
+webserver/datalogger.php
+  Webserver php script to store data. To be placed on your webserver (referenced in esp8266/waterwell.ino)
+
+webserver/datareader.php
+  Webserver php script to read data. To be placed on your webserver (referenced in home_assistant/secrets.yaml) 
+
+home_assistant/secrets.yaml
+  Home assistant secrets config to add
+  
+home_assistant/sensord.yaml
+  Home assistant sensor config to add
